@@ -1,6 +1,6 @@
-require_relative "./p_g_clone/version"
+require "pgclone/version"
 
-module PGClone
+module Pgclone
   
   class Configuration
     attr_accessor :owner, :appname, :local_db, :file
@@ -29,7 +29,7 @@ module PGClone
     end
 
     def config(key)
-      PGClone.configuration.send(key)
+      Pgclone.configuration.send(key)
     end
 
     def go!

@@ -1,4 +1,4 @@
-# PGClone
+# PG Clone
 
 This is a dead simple Postgres/Heroku cloning gem, to make it easier to pull database information from production to local.
 
@@ -20,7 +20,7 @@ The gem is usable either from the command line or from your Rails app.
 
 ### Command Line
 
-Just call `pgclone` with the required arguments specified (or `-h` for more info). Those arguments are `--appname` (your Heroku appname), `--owner` (the local database owner), and `--local-db` (the local database name). `PGClone` will take care of the rest:
+Just call `pgclone` with the required arguments specified (or `-h` for more info). Those arguments are `--appname` (your Heroku appname), `--owner` (the local database owner), and `--local-db` (the local database name). PG Clone will take care of the rest:
 
 ```bash
 $ pgclone -a my-heroku-app -o my-db-owner-username -l app_development
@@ -32,7 +32,7 @@ Set the mandatory configuration options in a config file:
 
 ```ruby
 # config/initializers/p_g_clone.rb
-PGClone.configuration do |config|
+Pgclone.configure do |config|
     config.appname = 'my-heroku-app'
     config.owner = 'my-db-owner-username'
     config.local_db = 'app_development'
@@ -43,13 +43,13 @@ end
 Then pull the data from your app like so:
 
 ```ruby
-PGClone::Restore.new.go!
+Pgclone::Restore.new.go!
 ```
 
 Or call directly with an options hash:
 
 ```ruby
-PGClone::Restore.new({ appname: 'whatever' }).go!
+Pgclone::Restore.new({ appname: 'whatever' }).go!
 ```
 
 ## Development

@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/p_g_clone"
+require "pgclone"
 require 'trollop'
-require 'pry'
 
 flags = {
   appname: "Heroku app name (required).",
@@ -17,4 +16,4 @@ opts = Trollop::options do
   end
 end
 
-PGClone.new( opts ).clone!
+Pgclone.new( opts ).clone!

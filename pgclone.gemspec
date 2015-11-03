@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'p_g_clone/version'
+require 'pgclone/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "pgclone"
-  spec.version       = PGClone::VERSION
+  spec.version       = Pgclone::VERSION
   spec.authors       = ["Sasha Klein"]
   spec.email         = ["sashafklein@gmail.com"]
 
