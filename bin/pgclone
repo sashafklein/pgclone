@@ -16,4 +16,4 @@ opts = Trollop::options do
   end
 end
 
-Pgclone.new( opts ).clone!
+Pgclone::Restore.new( opts ).go!
