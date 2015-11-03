@@ -28,5 +28,4 @@ Gem::Specification.new do |spec|
   spec.test_files = spec.files.grep(%r{^(spec)/})
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "trollop", '2.1.2'
 end
