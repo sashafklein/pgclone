@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'p_g_clone/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "p_g_clone"
+  spec.name          = "pgclone"
   spec.version       = PGClone::VERSION
   spec.authors       = ["Sasha Klein"]
   spec.email         = ["sashafklein@gmail.com"]
@@ -23,12 +23,11 @@ Gem::Specification.new do |spec|
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
-  spec.executables   = ['p_g_clone']
+  spec.executables   = ['pgclone']
   spec.require_paths = ["lib"]
 
   spec.test_files = spec.files.grep(%r{^(spec)/})
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "trollop", '2.1.2'
-  spec.add_development_dependency 'binding_of_caller'
 end

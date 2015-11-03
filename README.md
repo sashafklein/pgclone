@@ -7,7 +7,7 @@ This is a dead simple Postgres/Heroku cloning gem, to make it easier to pull dat
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pgclone', 'https://github.com/sashafklein/pgclone.git'
+gem 'pgclone', git: "git://github.com/sashafklein/pgclone.git"
 ```
 
 And then execute:
@@ -22,7 +22,7 @@ The gem is usable either from the command line or from your Rails app.
 
 Just call `pgclone` with the required arguments specified (or `-h` for more info). Those arguments are `--appname` (your Heroku appname), `--owner` (the local database owner), and `--local-db` (the local database name). `PGClone` will take care of the rest:
 
-```base
+```bash
 $ pgclone -a my-heroku-app -o my-db-owner-username -l app_development
 ```
 
