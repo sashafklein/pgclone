@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require_relative "../lib/p_g_clone"
+require 'trollop'
+require 'pry'
+
+flags = {
+  appname: "Heroku app name (required).",
+  owner: 'Local database owner (required).',
+  local_db: 'Local database name (required).',
+  file: 'File to save temporary DB dump to.'
+}
+
+opts = Trollop::options do
+  flags.each do |k, v|
+    opt k, v, short: k.to_s.chars.first, type: :string, required: k != :file
+  end
+end
+
+PGClone.new( opts ).clone!

@@ -1,28 +1,56 @@
-# Pgclone
+# PGClone
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pgclone`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a dead simple Postgres/Heroku cloning gem, to make it easier to pull database information from production to local.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pgclone'
+gem 'pgclone', 'https://github.com/sashafklein/pgclone.git'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install pgclone
-
 ## Usage
 
-TODO: Write usage instructions here
+The gem is usable either from the command line or from your Rails app. 
+
+### Command Line
+
+Just call `pgclone` with the required arguments specified (or `-h` for more info). Those arguments are `--appname` (your Heroku appname), `--owner` (the local database owner), and `--local-db` (the local database name). `PGClone` will take care of the rest:
+
+```base
+$ pgclone -a my-heroku-app -o my-db-owner-username -l app_development
+```
+
+### In Rails App
+
+Set the mandatory configuration options in a config file:
+
+```ruby
+# config/initializers/p_g_clone.rb
+PGClone.configuration do |config|
+    config.appname = 'my-heroku-app'
+    config.owner = 'my-db-owner-username'
+    config.local_db = 'app_development'
+    config.file = 'temporary-dumpfile.dump' # optional
+end
+```
+
+Then pull the data from your app like so:
+
+```ruby
+PGClone::Restore.new.go!
+```
+
+Or call directly with an options hash:
+
+```ruby
+PGClone::Restore.new({ appname: 'whatever' }).go!
+```
 
 ## Development
 
@@ -32,7 +60,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/pgclone/fork )
+1. Fork it ( https://github.com/sashafklein/pgclone/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
