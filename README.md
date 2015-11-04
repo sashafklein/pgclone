@@ -1,13 +1,15 @@
 # PG Clone
 
-This is a dead simple Postgres/Heroku cloning gem, to make it easier to pull database information from production to local.
+This is a dead simple Postgres/Heroku cloning gem, to make it easier to clone your production database locally.
+
+![archer-clone](https://dl.dropboxusercontent.com/s/3tq7c9pnwxr7let/clone-bone.gif?dl=0)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pgclone', git: "git://github.com/sashafklein/pgclone.git"
+gem 'pgclone'
 ```
 
 And then execute:
