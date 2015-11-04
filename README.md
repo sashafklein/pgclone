@@ -22,7 +22,7 @@ The gem is usable either from the command line or from your Rails app.
 
 ### Command Line
 
-Just call `pgclone` with the required arguments specified (or `-h` for more info). Those arguments are `--appname` (your Heroku appname), `--owner` (the local database owner), and `--local-db` (the local database name). PG Clone will take care of the rest:
+Just call `pgclone` with the required arguments specified (or `-h` for more info). Those arguments are `--appname` (`-a` - your Heroku appname), `--owner` (`-o` - the local database owner), and `--local-db` (`-l` - the local database name). PG Clone will take care of the rest:
 
 ```bash
 $ pgclone -a my-heroku-app -o my-db-owner-username -l app_development
@@ -33,7 +33,7 @@ $ pgclone -a my-heroku-app -o my-db-owner-username -l app_development
 Set the mandatory configuration options in a config file:
 
 ```ruby
-# config/initializers/p_g_clone.rb
+# config/initializers/pgclone.rb
 Pgclone.configure do |config|
     config.appname = 'my-heroku-app'
     config.owner = 'my-db-owner-username'
